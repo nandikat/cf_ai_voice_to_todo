@@ -19,9 +19,13 @@ How to use the Tool:
 Architecture:
 
 Frontend: Hosted on Cloudflare Pages. using HTML/JS it utilizes the browser's MediaRecorder API to capture the microphone input.
+
 Backend Coordinator:Cloudflare Worker that receives the audio buffer, sequences the AI model calls, and serves the REST APIs(to post the voice note and to get the history).
+
 AI Model 1 (Transcription): Uses Workers AI (@cf/openai/whisper) to transcribe the input audio blob into text.
-AI Model 2 (Task Extraction): Uses Workers AI (@cf/meta/llama-3.3-70b-instruct-fp8-fast) to process the transcript and return a structured JSON array..
+
+AI Model 2 (Task Extraction): Uses Workers AI (@cf/meta/llama-3.3-70b-instruct-fp8-fast) to process the transcript and return a structured JSON array.
+
 State Management: Uses Cloudflare D1 (Serverless SQL) to persistently store both the original transcripts and the extracted action items.
 
 
