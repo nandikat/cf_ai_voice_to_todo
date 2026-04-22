@@ -17,6 +17,7 @@ How to use the Tool:
 ![alt text](image.png)
 
 Architecture:
+
 Frontend: Hosted on Cloudflare Pages. using HTML/JS it utilizes the browser's MediaRecorder API to capture the microphone input.
 Backend Coordinator:Cloudflare Worker that receives the audio buffer, sequences the AI model calls, and serves the REST APIs(to post the voice note and to get the history).
 AI Model 1 (Transcription): Uses Workers AI (@cf/openai/whisper) to transcribe the input audio blob into text.
@@ -25,12 +26,15 @@ State Management: Uses Cloudflare D1 (Serverless SQL) to persistently store both
 
 
 To Run Locally
+
 Prerequisites
+
 Node.js installed
 Cloudflare account with Workers AI enabled
 Wrangler CLI installed globally (npm install -g wrangler)
 
 Backend
+
 1. Navigate to the backend directory: cd backend
 2. Authenticate Wrangler: npx wrangler login
 3. Create a local D1 database: npx wrangler d1 create voice-notes-db
@@ -39,6 +43,7 @@ Backend
 6. Start the local Worker: npx wrangler dev (Runs on localhost)
 
 Frontend
+
 1. Open frontend/app.js and change the uncomment the WORKER_URL variable at the top to http://localhost:8787/api/process.
 2. Open frontend/index.html in any web browser.
 3. Click "Start Recording" to test.
