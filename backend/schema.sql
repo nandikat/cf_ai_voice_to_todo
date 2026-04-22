@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS action_items;
+DROP TABLE IF EXISTS notes;
+
+CREATE TABLE notes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    transcript TEXT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE action_items (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    note_id INTEGER,
+    task TEXT NOT NULL,
+    FOREIGN KEY(note_id) REFERENCES notes(id)
+);

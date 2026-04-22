@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Voice Notes</title>
+    <style>
+        body { font-family: system-ui, sans-serif; max-width: 600px; margin: 2rem auto; padding: 1rem; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #de2196; color: white; border: none; border-radius: 5px; margin-bottom: 10px; }
+        button:disabled { background: #ccc; }
+        .card { border: 1px solid #ddd; padding: 15px; border-radius: 8px; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+    <h1>Speak to your TO-DO list</h1>
+    <button id="recordBtn">Start Recording</button>
+    <p id="status"></p>
+
+    <div class="card" id="resultCard" style="display: none; background: #e3ccd8;">
+        <h3>You said:</h3>
+        <p id="transcriptOutput" style="font-style: italic;"></p>
+        
+        <h3>Your tasks:</h3>
+        <ul id="tasksOutput"></ul>
+    </div>
+
+    <hr style="margin: 3rem 0; border: none; border-top: 1px solid #ddd;">
+    
+    <h2>Previous tasks</h2>
+    <button id="loadHistoryBtn" style="background: #333;">History</button>
+    <div id="historyContainer"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
