@@ -1,7 +1,9 @@
 Voice to TO-DO list web application
+
 URL to access the web application:https://8c6e938a.voice-to-notes-bda.pages.dev/
 
 About
+
 This is an AI-powered productivity web application built using Cloudflare's edge network. Users can record voice notes and the application orchestrates multiple AI models to transcribe the audio and automatically extract a structured checklist of action items(creates a TO-DO list). Users can also view a history of their past interactions.
 
 
